@@ -11,34 +11,78 @@ export function EditableFooter() {
   const { session, logout } = useEditableLocalAuthSession()
 
   return (
-    <footer className="border-t-8 border-[var(--slot4-accent)] bg-black text-white">
-      <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_.7fr_.7fr]">
+    <footer className="border-t border-[rgba(84,26,26,.18)] bg-[#F1E2D1] text-[#541A1A]">
+      <section className="border-b border-[rgba(84,26,26,.18)] bg-[#DCC3AA] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-[1120px] gap-10 lg:grid-cols-[1.2fr_auto] lg:items-center">
           <div>
-            <Link href="/" className="editorial-brand text-5xl font-black text-[var(--slot4-accent)] sm:text-6xl">{SITE_CONFIG.name}</Link>
-            <p className="mt-6 max-w-xl text-sm leading-7 text-white/62">{globalContent.footer?.description || SITE_CONFIG.description}</p>
-            <form action="/signup" className="mt-8 flex max-w-xl border border-white/35">
-              <input name="email" type="email" placeholder="Email for newsroom updates" className="min-w-0 flex-1 bg-transparent px-4 py-4 text-sm outline-none placeholder:text-white/40" />
-              <button className="bg-[var(--slot4-accent)] px-5 text-xs font-black uppercase tracking-[.14em]">Subscribe</button>
-            </form>
+            <p className="text-xs font-semibold uppercase tracking-[0.36em] text-[#810B38]">Ready to publish</p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-black leading-[1.02] tracking-[-0.05em] sm:text-5xl">Ship your next announcement with a distribution-first workflow.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#541A1A]">Use the submission flow when you are ready to publish, or contact the team for launch planning and multi-channel distribution support.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-[#541A1A] px-8 py-4 text-sm font-black text-[#F1E2D1] transition hover:-translate-y-0.5 hover:bg-[#810B38]">Contact</Link>
+            <Link href={session ? '/create' : '/signup'} className="inline-flex items-center justify-center rounded-full border border-[rgba(84,26,26,.2)] bg-[rgba(241,226,209,.5)] px-8 py-4 text-sm font-black text-[#541A1A] transition hover:border-[#541A1A]">Submit release</Link>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-[1120px] px-4 py-14 sm:px-6 lg:px-10 lg:py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_.6fr_.6fr_.6fr_.6fr]">
+          <div>
+            <Link href="/" className="editorial-brand text-5xl font-black text-[#541A1A] sm:text-6xl">{SITE_CONFIG.name}</Link>
+            <p className="mt-6 max-w-sm text-base leading-8 text-[#541A1A]">{globalContent.footer?.description || SITE_CONFIG.description}</p>
+            <p className="mt-6 max-w-md text-sm leading-7 text-[#541A1A]">A clean distribution destination for announcements, coverage, and searchable updates across categories.</p>
           </div>
           <div>
-            <h3 className="border-b border-white/25 pb-3 text-[10px] font-black uppercase tracking-[.22em] text-white/55">Explore</h3>
-            <div className="mt-4 grid gap-3">
-              <Link href="/search" className="group inline-flex items-center justify-between text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Archive<ArrowRight className="h-4 w-4" /></Link>
+            <h3 className="pb-3 text-[11px] font-black uppercase tracking-[0.28em] text-[#810B38]">Product</h3>
+            <div className="grid gap-4 text-sm text-[#541A1A]">
+              <Link href="/create" className="hover:text-[var(--editorial-red)]">Submit release</Link>
+              <Link href="/search" className="hover:text-[var(--editorial-red)]">Search</Link>
             </div>
           </div>
           <div>
-            <h3 className="border-b border-white/25 pb-3 text-[10px] font-black uppercase tracking-[.22em] text-white/55">Publication</h3>
-            <div className="mt-4 grid gap-3">
-              <Link href="/about" className="text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">About</Link>
-              <Link href="/contact" className="text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Contact</Link>
-              {session ? <><Link href="/create" className="text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Publish</Link><button onClick={logout} className="text-left text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Logout</button></> : <><Link href="/login" className="text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Log in</Link><Link href="/signup" className="text-sm font-black uppercase tracking-[.08em] hover:text-[var(--slot4-accent)]">Subscribe</Link></>}
+            <h3 className="pb-3 text-[11px] font-black uppercase tracking-[0.28em] text-[#810B38]">Company</h3>
+            <div className="grid gap-4 text-sm text-[#541A1A]">
+              <Link href="/contact" className="hover:text-[var(--editorial-red)]">Contact</Link>
+              <Link href="/about" className="hover:text-[var(--editorial-red)]">About</Link>
+            </div>
+          </div>
+          <div>
+            <h3 className="pb-3 text-[11px] font-black uppercase tracking-[0.28em] text-[#810B38]">Legal</h3>
+            <div className="grid gap-4 text-sm text-[#541A1A]">
+              <span>Privacy</span>
+              <span>Terms</span>
+              <span>Cookies</span>
+            </div>
+          </div>
+          <div>
+            <h3 className="pb-3 text-[11px] font-black uppercase tracking-[0.28em] text-[#810B38]">Account</h3>
+            <div className="grid gap-4 text-sm text-[#541A1A]">
+              {session ? (
+                <>
+                  <Link href="/create" className="hover:text-[var(--editorial-red)]">Publish</Link>
+                  <button onClick={logout} className="text-left hover:text-[var(--editorial-red)]">Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login" className="hover:text-[var(--editorial-red)]">Sign in</Link>
+                  <Link href="/signup" className="hover:text-[var(--editorial-red)]">Register</Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-[rgba(84,26,26,.18)] pt-8">
+          <div className="flex flex-col gap-4 text-sm text-[#541A1A] sm:flex-row sm:items-center sm:justify-between">
+            <p>© {year} {SITE_CONFIG.name}. All rights reserved.</p>
+            <div className="inline-flex items-center gap-2 text-[#810B38]">
+              <ArrowRight className="h-4 w-4" />
+              <span>{SITE_CONFIG.domain || 'news.send2post.com'}</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/20 px-4 py-5 text-center text-[10px] font-black uppercase tracking-[.18em] text-white/45">© {year} {SITE_CONFIG.name}. Independent media and public information.</div>
     </footer>
   )
 }
