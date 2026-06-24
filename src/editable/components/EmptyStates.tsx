@@ -18,13 +18,13 @@ export function EmptyState({
   className,
 }: EmptyStateProps) {
   return (
-    <section className={cn('rounded-[2rem] border border-current/10 bg-current/[0.03] p-8 text-center', className)}>
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-current/10">
+    <section className={cn('rounded-[2rem] border border-[rgba(84,26,26,.14)] bg-[#F1E2D1] p-8 text-center text-[#541A1A] shadow-[0_16px_34px_rgba(84,26,26,.05)]', className)}>
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#DCC3AA] text-[#810B38]">
         <SearchX className="h-6 w-6" />
       </div>
-      <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em]">{title}</h2>
-      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-current/65">{description}</p>
-      <Link href={actionHref} className="mt-6 inline-flex items-center gap-2 rounded-full border border-current/15 px-5 py-3 text-sm font-semibold transition hover:bg-current hover:text-background">
+      <h2 className="mt-5 text-2xl font-black tracking-[-0.03em]">{title}</h2>
+      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[#541A1A]">{description}</p>
+      <Link href={actionHref} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#541A1A] px-5 py-3 text-sm font-black text-[#F1E2D1] transition hover:-translate-y-0.5 hover:bg-[#810B38]">
         {actionLabel}
         <ArrowRight className="h-4 w-4" />
       </Link>
